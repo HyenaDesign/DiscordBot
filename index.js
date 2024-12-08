@@ -29,9 +29,6 @@ client.once('ready', () => {
 client.on('messageCreate', async (message) => {
     if (message.author.bot) return; // Voorkom dat de bot op eigen berichten reageert
 
-    // Als het een slash-commando is, reageer dan niet via de messageCreate handler
-    if (message.content.startsWith('/')) return;
-
     if (message.content.startsWith(PREFIX)) {
         const [command, ...args] = message.content.slice(PREFIX.length).trim().split(/\s+/);
         switch (command) {
@@ -50,19 +47,6 @@ client.on('messageCreate', async (message) => {
     } else {
         // Verwerk normale berichten voor XP en coins
         await handleXPAndCoins(message);
-    }
-});
-
-// Slash Command Handler (voor slash-based commands zoals /bank-check)
-client.on('interactionCreate', async (interaction) => {
-    if (!interaction.isCommand()) return; // Als de interactie geen commando is, stop dan
-
-    const { commandName } = interaction;
-
-    if (commandName === 'bank-check') {
-        await handleBankCheck(interaction); // Roep de bank-check slash command aan
-    } else {
-        interaction.reply('❌ Onbekend slash commando!');
     }
 });
 

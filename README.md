@@ -121,6 +121,6 @@ Want to contribute to the development of **Buck**? Awesome! We welcome any contr
 4. **Make your changes**.
 5. **Submit a pull request** to the main branch.
 
-If you want to get in touch with the development team or ask questions, join our [Discord server](#) where we discuss future features and bug fixes!
+If you want to get in touch with the development team or ask questions, join our [Discord server](https://discord.gg/t3RTJDHr) where we discuss future features and bug fixes!
 
 Thank you for using **Buck**! We hope you enjoy the experience, and we can’t wait to see you level up! 🎮

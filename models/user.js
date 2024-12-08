@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
     xp: { type: Number, default: 0 },
     coins: { type: Number, default: 0 },
     level: { type: Number, default: 0 }, // Nieuw: voegt level toe
+    inventory: { type: [String], default: [] } // Nieuw: voegt een array toe voor gekochte items
 });
 
 const User = mongoose.model('User', userSchema);

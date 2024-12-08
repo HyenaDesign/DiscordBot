@@ -12,10 +12,4 @@ const handleBankCheck = async (message, args) => {
     message.reply(`🏦 Je hebt momenteel ${user.coins} coins in je bank.`);
 };
 
-
-module.exports = async (input, args) => {
-    // Detecteer of input een interaction of een message is
-    if (input.isCommand) {
-        await handleBankCheck(input, args);
-    }
-};
+module.exports = handleBankCheck;

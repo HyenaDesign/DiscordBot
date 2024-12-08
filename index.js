@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const handleXPAndCoins = require('./commands/xp-coins');
 const handleBankCheck = require('./commands/bank-check');
 const handleLevelCheck = require('./commands/level-check');
-
+const port = process.env.PORT || 3000;
 const PREFIX = '!'; 
 
 mongoose.connect(process.env.MONGO_URI, {})

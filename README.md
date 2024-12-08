@@ -1,4 +1,4 @@
-Wild Eight Bot README
+#Wild Eight Bot README
 Welcome to Wild Eight Bot, your ultimate companion for leveling up, collecting coins, and exploring an exciting new world of in-bot shops and more! 🎮✨ This bot will make your Discord server more interactive, engaging, and fun with its powerful leveling system, currency mechanics, and tons of awesome features.
 
 Let’s dive into the details and get you started with Wild Eight Bot!

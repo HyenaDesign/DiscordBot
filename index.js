@@ -8,15 +8,18 @@ const handleLevelCheck = require('./commands/level-check');
 const PREFIX = '!'; // Standaard prefix voor commands
 
 // Database Setup
-mongoose.connect(process.env.MONGO_URI, {
-}).then(() => {
-    console.log("✅ Connected to MongoDB!");
-}).catch(err => {
-    console.error("❌ MongoDB Connection Error:", err);
-});
+mongoose.connect(process.env.MONGO_URI, {})
+    .then(() => {
+        console.log("✅ Connected to MongoDB!");
+    })
+    .catch(err => {
+        console.error("❌ MongoDB Connection Error:", err);
+    });
 
 // Bot Setup
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+const client = new Client({
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
+});
 
 client.once('ready', () => {
     console.log(`🚀 Logged in as ${client.user.tag}!`);
@@ -24,7 +27,10 @@ client.once('ready', () => {
 
 // Handle messages (voor prefix-based commands zoals !bank-check)
 client.on('messageCreate', async (message) => {
-    if (message.author.bot) return;
+    if (message.author.bot) return; // Voorkom dat de bot op eigen berichten reageert
+
+    // Als het een slash-commando is, reageer dan niet via de messageCreate handler
+    if (message.content.startsWith('/')) return;
 
     if (message.content.startsWith(PREFIX)) {
         const [command, ...args] = message.content.slice(PREFIX.length).trim().split(/\s+/);
@@ -49,12 +55,12 @@ client.on('messageCreate', async (message) => {
 
 // Slash Command Handler (voor slash-based commands zoals /bank-check)
 client.on('interactionCreate', async (interaction) => {
-    if (!interaction.isCommand()) return;
+    if (!interaction.isCommand()) return; // Als de interactie geen commando is, stop dan
 
     const { commandName } = interaction;
 
     if (commandName === 'bank-check') {
-        await handleBankCheck(interaction);
+        await handleBankCheck(interaction); // Roep de bank-check slash command aan
     } else {
         interaction.reply('❌ Onbekend slash commando!');
     }

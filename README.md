@@ -1,8 +1,8 @@
-# Wild Eight Bot
+# Buck
 
-Welcome to **Wild Eight Bot**, your ultimate companion for leveling up, collecting coins, and exploring an exciting new world of in-bot shops and more! 🎮✨ This bot will make your Discord server more interactive, engaging, and fun with its powerful leveling system, currency mechanics, and tons of awesome features.
+Welcome to **Buck**, your ultimate companion for leveling up, collecting coins, and exploring an exciting new world of in-bot shops and more! 🎮✨ This bot will make your Discord server more interactive, engaging, and fun with its powerful leveling system, currency mechanics, and tons of awesome features.
 
-Let’s dive into the details and get you started with **Wild Eight Bot**!
+Let’s dive into the details and get you started with **Buck**!
 
 ---
 
@@ -20,13 +20,13 @@ Let’s dive into the details and get you started with **Wild Eight Bot**!
 
 ### 1. Invite the Bot
 
-To get started, invite **Wild Eight Bot** to your Discord server by using the link below:
+To get started, invite **Buck** to your Discord server by using the link below:
 
-[Invite Wild Eight Bot](https://discord.com/oauth2/authorize?client_id=1315089140311785482)
+[Invite Buck](https://discord.com/oauth2/authorize?client_id=1315089140311785482)
 
 ### 2. Add the Bot to Your Server
 
-Once invited, make sure you give the bot the proper permissions. **Wild Eight Bot** needs the following permissions to work correctly:
+Once invited, make sure you give the bot the proper permissions. **Buck** needs the following permissions to work correctly:
 
 - **Send Messages**
 - **Read Messages**
@@ -36,13 +36,13 @@ Once invited, make sure you give the bot the proper permissions. **Wild Eight Bo
 
 ### 3. Start Interacting
 
-Once the bot is in your server, just type in any channel, and **Wild Eight Bot** will start working its magic! You don’t need to do anything special—just start chatting, and watch your **XP** and **Coins** grow! 💬
+Once the bot is in your server, just type in any channel, and **Buck** will start working its magic! You don’t need to do anything special—just start chatting, and watch your **XP** and **Coins** grow! 💬
 
 ---
 
 ## 📊 Command List
 
-Here’s a detailed list of commands you can use with **Wild Eight Bot**:
+Here’s a detailed list of commands you can use with **Buck**:
 
 ### 🎮 **Leveling and XP Commands**
 
@@ -87,7 +87,7 @@ Here’s a sneak peek at what you can buy with your coins:
 
 ### 🌍 Global & Server Leaderboards
 
-- **Global Leaderboard**: Track the top users across all servers using **Wild Eight Bot**!
+- **Global Leaderboard**: Track the top users across all servers using **Buck**!
 - **Server Leaderboard**: Keep an eye on who’s winning the race within your server!
 
 ---
@@ -113,7 +113,7 @@ We love feedback and suggestions, so if you have an idea for a new feature, let 
 
 ## 💻 Development and Contributing
 
-Want to contribute to the development of **Wild Eight Bot**? Awesome! We welcome any contributions. Feel free to fork the repo, submit issues, or open pull requests with your suggestions or bug fixes. Here's a quick guide to help you get started:
+Want to contribute to the development of **Buck**? Awesome! We welcome any contributions. Feel free to fork the repo, submit issues, or open pull requests with your suggestions or bug fixes. Here's a quick guide to help you get started:
 
 1. **Fork the repo**.
 2. **Clone your fork** to your local machine.
@@ -123,4 +123,4 @@ Want to contribute to the development of **Wild Eight Bot**? Awesome! We welcome
 
 If you want to get in touch with the development team or ask questions, join our [Discord server](#) where we discuss future features and bug fixes!
 
-Thank you for using **Wild Eight Bot**! We hope you enjoy the experience, and we can’t wait to see you level up! 🎮
+Thank you for using **Buck**! We hope you enjoy the experience, and we can’t wait to see you level up! 🎮

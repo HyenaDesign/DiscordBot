@@ -3,7 +3,7 @@ const User = require('../models/user');
 
 // Shop Items
 const shopItems = [
-    { id: 'item1', name: 'Zwaard', price: 100 },
+    { id: 'item1', name: '<:soldat:1031921580483293235>', price: 20 },
     { id: 'item2', name: 'Schild', price: 150 },
     { id: 'item3', name: 'Helm', price: 200 },
 ];

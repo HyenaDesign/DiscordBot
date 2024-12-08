@@ -1,26 +1,57 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
-
-// Configuraties en verbindingen
-const connectDB = require('./config/db');
+const mongoose = require('mongoose');
 const handleXPAndCoins = require('./commands/xp-coins');
+const handleBankCheck = require('./commands/bank-check'); // Bank-check command
 
-// Verbinding maken met de database
-connectDB();
+const PREFIX = '!'; // Standaard prefix voor commands
 
-// Bot Setup
-const client = new Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
+// Database Setup
+mongoose.connect(process.env.MONGO_URI, {
+}).then(() => {
+    console.log("✅ Connected to MongoDB!");
+}).catch(err => {
+    console.error("❌ MongoDB Connection Error:", err);
 });
 
-// Bot is ready
+// Bot Setup
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+
 client.once('ready', () => {
     console.log(`🚀 Logged in as ${client.user.tag}!`);
 });
 
-// Handle messages
+// Handle messages (voor prefix-based commands zoals !bank-check)
 client.on('messageCreate', async (message) => {
-    handleXPAndCoins(message); // Voer de XP en coins logica uit
+    if (message.author.bot) return;
+
+    if (message.content.startsWith(PREFIX)) {
+        const [command, ...args] = message.content.slice(PREFIX.length).trim().split(/\s+/);
+        switch (command) {
+            case 'bank-check':
+                await handleBankCheck(message, args); // Roep de bank-check command aan
+                break;
+            default:
+                message.reply('❌ Onbekend commando!');
+                break;
+        }
+    } else {
+        // Verwerk normale berichten voor XP en coins
+        await handleXPAndCoins(message);
+    }
+});
+
+// Slash Command Handler (voor slash-based commands zoals /bank-check)
+client.on('interactionCreate', async (interaction) => {
+    if (!interaction.isCommand()) return;
+
+    const { commandName } = interaction;
+
+    if (commandName === 'bank-check') {
+        await handleBankCheck(interaction);
+    } else {
+        interaction.reply('❌ Onbekend slash commando!');
+    }
 });
 
 // Start de bot

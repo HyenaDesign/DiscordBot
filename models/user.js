@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
     discordId: { type: String, required: true, unique: true },
     xp: { type: Number, default: 0 },
     coins: { type: Number, default: 0 },
+    level: { type: Number, default: 0 }, // Nieuw: voegt level toe
 });
 
 const User = mongoose.model('User', userSchema);

@@ -3,6 +3,7 @@ const { Client, GatewayIntentBits } = require('discord.js');
 const mongoose = require('mongoose');
 const handleXPAndCoins = require('./commands/xp-coins');
 const handleBankCheck = require('./commands/bank-check'); // Bank-check command
+const handleLevelCheck = require('./commands/level-check');
 
 const PREFIX = '!'; // Standaard prefix voor commands
 
@@ -31,6 +32,11 @@ client.on('messageCreate', async (message) => {
             case 'bank-check':
                 await handleBankCheck(message, args); // Roep de bank-check command aan
                 break;
+            
+            case 'level-check':
+                await handleLevelCheck(message); // Roep de level-check command aan
+                break;
+
             default:
                 message.reply('❌ Onbekend commando!');
                 break;

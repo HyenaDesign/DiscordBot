@@ -22,7 +22,7 @@ Let’s dive into the details and get you started with **Buck**!
 
 To get started, invite **Buck** to your Discord server by using the link below:
 
-[Invite Buck](https://discord.com/oauth2/authorize?client_id=1315089140311785482)
+[Invite Buck](https://discord.com/application-directory/1315089140311785482)
 
 ### 2. Add the Bot to Your Server
 

@@ -7,21 +7,30 @@ const handleXPAndCoins = async (message) => {
 
     const userId = message.author.id;
 
-    // Find or create the user in the database
-    let user = await User.findOneAndUpdate(
-        { discordId: userId }, 
-        { $setOnInsert: { discordId: userId, xp: 0, coins: 0, level: 0 } },
-        { new: true, upsert: true }  // This ensures user is created if not found
-    );
+    // Zoek de gebruiker in de database
+    let user = await User.findOne({ discordId: userId });
 
-    // Reward XP and coins
-    user.xp += 10; // Modify this to adjust XP per message
-    user.coins += 5; // Modify this to adjust coins per message
+    if (!user) {
+        // Als de gebruiker nog niet bestaat, maak dan de gebruiker aan
+        user = new User({
+            discordId: userId,
+            xp: 0,
+            coins: 0,
+            level: 0,
+        });
 
-    // Check if the user leveled up
+        // Stuur een welkomstbericht als de gebruiker nieuw is
+        message.reply(`🎉 Welkom, ${message.author.username}! Je ontvangt nu **10 XP** en **5 coins** voor elk bericht! Geniet ervan! 🎉`);
+    }
+
+    // Beloon de gebruiker met XP en coins
+    user.xp += 10; // Aantal XP per bericht
+    user.coins += 5; // Aantal coins per bericht
+
+    // Controleer of de gebruiker is opgeklommen naar een nieuw level
     const nextLevelXP = calculateNextLevelXP(user.level);
     if (user.xp >= nextLevelXP) {
-        user.level += 1; // Increase level if enough XP
+        user.level += 1; // Verhoog het level als de gebruiker genoeg XP heeft
         await user.save();
 
         message.reply(`🎉 Gefeliciteerd! Je bent nu level ${user.level}!`);

@@ -20,9 +20,9 @@ const userSchema = new mongoose.Schema({
         type: Number, 
         default: 0 
     },
-    inventory: { 
-        type: [String], 
-        default: [] 
+    lastClaim: {
+         type: Date,
+         default: Date.now
     },
 }, { timestamps: true });  // Add createdAt and updatedAt fields
 

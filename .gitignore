@@ -1,2 +1,4 @@
 .env
 node_modules/
+register-commands.js
+delete-commands.js
